@@ -7,7 +7,7 @@
 		<title>联网测试器</title>
 		<script src="js/mui.min.js"></script>
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+		<script src="js/jquery-2.2.0.min.js"></script>
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="js/bootstrap.min.js"></script>
 		<link href="css/mui.min.css" rel="stylesheet" />
@@ -22,12 +22,15 @@
 				var myAuto = document.getElementById("myaudio");
 				var state = document.getElementById("show_state");
 				document.getElementById("start").addEventListener('tap',function(e) {
+					setTimeout(function(){
+						state.innerHTML += "请稍作等待……"+"<br/>";
+					},5000);
 					if (window.navigator.onLine == true) {
-						state.innerHTML = "联网成功";
+						state.innerHTML += "联网成功"+"<br/>";
 						myAuto.play();
 					}
 					else{
-						state.innerHTML = "联网失败";
+						state.innerHTML += "联网失败"+"<br/>";
 					}
 				});
 				document.getElementById("stop").addEventListener('tap',function(e){
@@ -68,8 +71,8 @@
 			</div>
 
 			<!--显示区-->
-			<div style="background: coral;height: 150px;line-height: 30px;">
-				<p id="show_state"></p>
+			<div style="background: coral;height: 150px;">
+				<p id="show_state" style="color: white;"></p>
 			</div>
 
 			<!--广告区-->

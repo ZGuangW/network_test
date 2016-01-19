@@ -199,7 +199,8 @@
 					"css/mui.min.css",
 					"js/bootstrap.min.js",
 					"css/bootstrap.min.css",
-					"music/remind.mp3"
+					"music/remind.mp3",
+					"js/jquery-2.2.0.min.js"
 				],
 				"refer": [],
 				"priority": 0
