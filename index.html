@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>联网测试器</title>
+		<script src="js/mui.min.js"></script>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/bootstrap.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			mui.plusReady(function() {
+				var second = document.getElementById("second_id");
+				second.innerHTML = 1;
+				var myAuto = document.getElementById("myaudio");
+				var state = document.getElementById("show_state");
+				document.getElementById("start").addEventListener('tap',function(e) {
+					if (window.navigator.onLine == true) {
+						state.innerHTML = "联网成功";
+						myAuto.play();
+					}
+					else{
+						state.innerHTML = "联网失败";
+					}
+				});
+				document.getElementById("stop").addEventListener('tap',function(e){
+					myAuto.pause();
+					myAuto.load();
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a id="info" class="mui-icon mui-icon-info-filled mui-pull-right" style="color: #999;"></a>
+			<h1 class="mui-title" style="font-family: '黑体';color: darkred;">联网测试器</h1>
+		</header>
+		<div class="mui-content">
+			<!--功能区-->
+			<div style="height: 150px;margin-top:20px;text-align: center;">
+				<div style="height: 150px;width: 260px; margin:0 auto;vertical-align: middle;line-height: 50px;">
+					<div class="btn-group" role="group">
+						<button class="btn btn-default dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+							<span id="second_id"></span>
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu" aria-lableledby="dropdownMenu1">
+							<li><a href="#">1</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">5</a></li>
+							<li><a href="#">10</a></li>
+						</ul>
+					</div>
+					<span>分钟测试一次</span>
+					<br />
+					<button class="btn btn-primary" id="start">开始测试</button>
+					<button class="btn btn-danger" id="stop">停止</button>
+					<audio id="myaudio" src="music/remind.mp3" controls="controls" loop="false" hidden="true">
+				</div>
+			</div>
+
+			<!--显示区-->
+			<div style="background: coral;height: 150px;line-height: 30px;">
+				<p id="show_state"></p>
+			</div>
+
+			<!--广告区-->
+			<div style="background: chartreuse;height: 50px;position: absolute;bottom: 0;">
+
+			</div>
+		</div>
+	</body>
+
+</html>
